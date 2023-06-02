@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FamilyBudget.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class BudgetController : DBController<Budget, BudgetRepository>
     {
         private readonly ILogger<BudgetController> _logger;
