@@ -1,0 +1,5 @@
+*.suo
+*.user
+/.vs
+FamilyBudget.Api/bin
+FamilyBudget.Api/obj
