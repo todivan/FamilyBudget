@@ -1,6 +1,8 @@
 ﻿using FamilyBudget.Api.Model;
 using FamilyBudget.Api.Model.Configurations;
 using FamilyBudget.Api.Model.Dto;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -131,8 +133,8 @@ namespace FamilyBudget.Api.Controllers
             });
         }
 
-
-        [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet]
         [Route(template: "List")]
         public async Task<IActionResult> ListUsers()
         {

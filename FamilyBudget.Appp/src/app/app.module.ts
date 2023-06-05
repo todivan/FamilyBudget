@@ -3,18 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BudgetComponentComponent } from './components/budget-component/budget-component.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BudgetComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
