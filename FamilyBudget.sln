@@ -28,6 +28,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FamilyBudget.Appp", "Family
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5D32E403-158E-41B1-AF4F-A3D9429E7275}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{4CF7E96D-84BA-4E62-B9C6-E621F4880A6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{5D32E403-158E-41B1-AF4F-A3D9429E7275}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D32E403-158E-41B1-AF4F-A3D9429E7275}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D32E403-158E-41B1-AF4F-A3D9429E7275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF7E96D-84BA-4E62-B9C6-E621F4880A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF7E96D-84BA-4E62-B9C6-E621F4880A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF7E96D-84BA-4E62-B9C6-E621F4880A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF7E96D-84BA-4E62-B9C6-E621F4880A6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

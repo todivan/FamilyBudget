@@ -1,6 +1,7 @@
 ﻿
 using FamilyBudget.Api.Data;
 using FamilyBudget.Api.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace FamilyBudget.Data
 {

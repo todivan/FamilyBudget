@@ -10,7 +10,7 @@ namespace FamilyBudget.Api.Controllers
             where TEntity : class, IEntity
             where TRepository : IRepository<TEntity>
     {
-        private readonly TRepository repository;
+        protected readonly TRepository repository;
 
 
         public DBController(TRepository repository)
