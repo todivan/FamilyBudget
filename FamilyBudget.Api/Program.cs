@@ -48,6 +48,7 @@ string connectionString = builder.Configuration.GetConnectionString("DbConnectio
 builder.Services.AddEntityFrameworkNpgsql()
     .AddDbContext<AppDbContext>(opt => opt.UseNpgsql(connectionString));
 builder.Services.AddScoped<BudgetRepository>();
+builder.Services.AddScoped<BudgetShareRepository>();
 builder.Services.AddScoped<TransactionRepository>();
 
 //add CORS rule

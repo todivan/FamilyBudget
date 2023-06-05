@@ -132,6 +132,27 @@ namespace FamilyBudget.Api.Controllers
         }
 
 
+        [HttpPost]
+        [Route(template: "List")]
+        public async Task<IActionResult> ListUsers()
+        {
+            List<FamilyMemberDto> familiyMembers = new List<FamilyMemberDto>();
+            foreach(var user in _userManager.Users)
+            {
+                var familyMember = new FamilyMemberDto()
+                {
+                    Email = user.Email,
+                    Id = user.Id,
+                    UserName = user.UserName
+                };
+
+                familiyMembers.Add(familyMember);
+            }
+
+            return Ok(familiyMembers);
+        }
+
+
         private string GenerateJwtToken(IdentityUser identityUser)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();

@@ -21,53 +21,53 @@ namespace FamilyBudget.Api.Controllers
 
         // GET: api/[controller]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TEntity>>> Get()
+        public async Task<ActionResult<IEnumerable<TEntity>>> Get(int pageNumber = 0, int pageSize = 0)
         {
-            return await repository.GetAll();
+            return await repository.GetAll(pageNumber, pageSize);
         }
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TEntity>> Get(int id)
         {
-            var movie = await repository.Get(id);
-            if (movie == null)
+            var entity = await repository.Get(id);
+            if (entity == null)
             {
                 return NotFound();
             }
-            return movie;
+            return entity;
         }
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, TEntity movie)
+        public async Task<IActionResult> Put(int id, TEntity entity)
         {
-            if (id != movie.Id)
+            if (id != entity.Id)
             {
                 return BadRequest();
             }
-            await repository.Update(movie);
+            await repository.Update(entity);
             return NoContent();
         }
 
         // POST: api/[controller]
         [HttpPost]
-        public async Task<ActionResult<TEntity>> Post(TEntity movie)
+        public async Task<ActionResult<TEntity>> Post(TEntity entity)
         {
-            await repository.Add(movie);
-            return CreatedAtAction("Get", new { id = movie.Id }, movie);
+            await repository.Add(entity);
+            return CreatedAtAction("Get", new { id = entity.Id }, entity);
         }
 
         // DELETE: api/[controller]/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<TEntity>> Delete(int id)
         {
-            var movie = await repository.Delete(id);
-            if (movie == null)
+            var entity = await repository.Delete(id);
+            if (entity == null)
             {
                 return NotFound();
             }
-            return movie;
+            return entity;
         }
 
     }

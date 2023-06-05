@@ -9,6 +9,7 @@ namespace FamilyBudget.Api.Data
         where TContext : DbContext
     {
         private readonly TContext context;
+        private const int MAX_PAGE_SIZE = 50;
         public EfCoreRepository(TContext context)
         {
             this.context = context;
@@ -39,9 +40,18 @@ namespace FamilyBudget.Api.Data
             return await context.Set<TEntity>().FindAsync(id);
         }
 
-        public async Task<List<TEntity>> GetAll()
+        public async Task<List<TEntity>> GetAll(int pageNumber = 0, int pageSize = 0)
         {
-            return await context.Set<TEntity>().ToListAsync();
+            if (pageNumber > 0 && pageSize > 0)
+            {
+                pageSize = (pageSize > MAX_PAGE_SIZE) ? MAX_PAGE_SIZE : pageSize;
+                int count = await context.Set<TEntity>().CountAsync();
+                return await context.Set<TEntity>().Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+            }
+            else
+            {
+                return await context.Set<TEntity>().ToListAsync();
+            }
         }
 
         public async Task<TEntity> Update(TEntity entity)
