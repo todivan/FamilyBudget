@@ -3,3 +3,5 @@
 /.vs
 FamilyBudget.Api/bin
 FamilyBudget.Api/obj
+/bin
+/obj
