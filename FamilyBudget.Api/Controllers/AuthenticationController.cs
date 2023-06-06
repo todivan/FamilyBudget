@@ -52,7 +52,8 @@ namespace FamilyBudget.Api.Controllers
                 var newUser = new IdentityUser()
                 {
                     Email = userRegistrationRequestDto.Email,
-                    UserName = userRegistrationRequestDto.Email
+                    UserName = userRegistrationRequestDto.Email,
+                    NormalizedUserName = userRegistrationRequestDto.Name
                 };
 
                 IdentityResult isCreated = await _userManager.CreateAsync(newUser, userRegistrationRequestDto.Password);
@@ -145,7 +146,7 @@ namespace FamilyBudget.Api.Controllers
                 {
                     Email = user.Email,
                     Id = user.Id,
-                    UserName = user.UserName
+                    UserName = user.NormalizedUserName
                 };
 
                 familiyMembers.Add(familyMember);

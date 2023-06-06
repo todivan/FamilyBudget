@@ -5,10 +5,12 @@ import { BudgetComponentComponent } from './components/budget-component/budget-c
 import { LoginComponent } from './components/login/login.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { UserComponent } from './components/user/user.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent },
   { path: 'budget', component: BudgetComponentComponent },
   { path: 'user', component: UserComponent },
   { path: 'transaction', component: TransactionComponent },

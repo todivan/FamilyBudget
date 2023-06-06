@@ -29,6 +29,12 @@ export class BudgetService {
     return this.http.post<any>(`${environment.apiUrl}/Authentication/Login`, options);
   }
 
+  public doRegister(name: string, email: string, password: string): Observable<any> {
+    const options = { name, email, password }
+
+    return this.http.post<any>(`${environment.apiUrl}/Authentication/Register`, options);
+  }
+
   public listBudgets(): Observable<Budget[]>  {
 
     return this.http.get<Budget[]>(`${environment.apiUrl}/budget`, {
