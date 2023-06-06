@@ -9,15 +9,15 @@ services:
     image: ${DOCKER_REGISTRY-}familybudgetapi
     depends_on:
       - "app_db"
-    container_name: family-budget
+    container_name: family-budget-api
     ports:
-      - "8080:80"
+      - "33686:8080"
     build:
       context: .
       dockerfile: FamilyBudget.Api/Dockerfile
     environment:
       - ConnectionStrings__DbConnection=User ID=postgres;Password=postgres;Server=app_db;Port=5432;Database=FamilyBudget; IntegratedSecurity=true;Pooling=true
-      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_URLS=http://+:8080
     networks:
       - dev
 
@@ -35,6 +35,14 @@ services:
       - app_data:/var/lib/postgres/data
     networks:
       - dev
+
+  #familybudget.app:
+  #  image: familybudget-app:latest
+  #  container_name: family-budget-app
+  #  ports:
+  #    - "4200:80"
+  #  networks:
+  #    - dev
 
 volumes:
   app_data:

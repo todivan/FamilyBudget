@@ -53,7 +53,8 @@ builder.Services.AddScoped<TransactionRepository>();
 
 //add CORS rule
 builder.Services.AddCors(options => options.AddPolicy("AngularClient", policy => {
-    policy.WithOrigins("http://localhost:4200", "http://localhost:49438")
+    //policy.WithOrigins("http://localhost:4200", "http://localhost:49438")
+    policy.AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader();
 }));
