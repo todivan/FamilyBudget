@@ -48,6 +48,7 @@ Migration is still not automated from API so in the beginning should be done man
 # Further tasks
 - Automate migration from API
 - Provide helpful API endpoint that will group action in order to simplify using from front-end
+- Provide exception handling
 - Provide interceptor
 - Implement front-end login based on above description
 - Solve issue with frontend container deployment
