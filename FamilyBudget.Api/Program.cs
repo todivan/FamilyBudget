@@ -9,7 +9,18 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
+var MyAllowSpecificOrigins = "_AllowPolicy";
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                      });
+});
 
 // Add services to the container.
 
@@ -51,15 +62,6 @@ builder.Services.AddScoped<BudgetRepository>();
 builder.Services.AddScoped<BudgetShareRepository>();
 builder.Services.AddScoped<TransactionRepository>();
 
-//add CORS rule
-builder.Services.AddCors(options => options.AddPolicy("AngularClient", policy => {
-    //policy.WithOrigins("http://localhost:4200", "http://localhost:49438")
-    policy.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost")
-    //policy.AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader();
-}));
-
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection(key:"JwtConfig"));
 
 builder.Services.AddAuthentication(configureOptions: options =>
@@ -100,10 +102,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
+app.UseRouting();
+app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
-
 app.MapControllers();
-
-app.UseCors("AngularClient");
 
 app.Run();
