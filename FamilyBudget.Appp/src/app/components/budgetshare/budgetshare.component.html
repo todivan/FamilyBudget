@@ -1,3 +1,25 @@
+<div class="example-container">
+  <mat-form-field>
+    <mat-label>Enter ID</mat-label>
+    <input type="number" matInput placeholder="ID" [formControl]="newId" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Enter User GUID</mat-label>
+    <input matInput placeholder="UserGUid" [formControl]="newUserGuid" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Enter Budget ID</mat-label>
+    <input type="number" matInput placeholder="BudgetId" [formControl]="newBudgetId" required>
+  </mat-form-field>
+  <div class="example-button-row">
+    <button mat-flat-button color="primary" (click)="createBudgetShare()">Create</button>
+  </div>
+</div>
+
+<hr>
+<hr>
+
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.

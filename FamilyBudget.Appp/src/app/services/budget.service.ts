@@ -48,4 +48,22 @@ export class BudgetService {
 
     return this.http.get<Transaction[]>(`${environment.apiUrl}/transaction`);
   }
+
+  public createBudget(id: number, name: string, amount: number): Observable<any> {
+    const options = { id, name, amount }
+
+    return this.http.post<any>(`${environment.apiUrl}/budget`, options);
+  }
+
+  public createTransaction(id: number, budetId: number, type: number, amount: number, category:number): Observable<any> {
+    const options = { id, budetId, type, amount, category }
+
+    return this.http.post<any>(`${environment.apiUrl}/transaction`, options);
+  }
+
+  public createBudgetShare(id: number, userGuid: string, budetId: number): Observable<any> {
+    const options = { id, userGuid, budetId }
+
+    return this.http.post<any>(`${environment.apiUrl}/budgetshare`, options);
+  }
 }
