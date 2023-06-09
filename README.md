@@ -35,7 +35,7 @@ Backend API Swagger should be available on https://localhost:33688/swagger/index
 
  Register user
  Login with registered user
- At this stage fronted only has listing of models, later should be added desired flow and implemented FE business logic
+ At this stage fronted has only simple crating and listing of models, later should be added desired flow and implemented FE business logic
  
   Backend is fully ready tested and functional form swagger:
  Using of API for business logic:
